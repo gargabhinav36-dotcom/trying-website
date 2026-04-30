@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Souvenir Interiors - Luxury Interior Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #f5f3f0;
+            --accent: #c17a5c;
+            --accent-light: #e8d4c8;
+            --text-dark: #1a1a1a;
+            --text-light: #ffffff;
+            --text-muted: #7a7a7a;
+            --border: #e0d9d1;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            color: var(--text-dark);
+            background: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 2rem;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background: var(--primary);
+            color: var(--text-light);
+            padding: 0.75rem 2rem;
+            border-radius: 2px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(193, 122, 92, 0.2);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--secondary) 0%, #fefcfa 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0.4;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--text-light);
+            border-radius: 2px;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(193, 122, 92, 0.25);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 2px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--text-light);
+        }
+
+        /* SECTION STYLES */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-weight: 300;
+            max-width: 600px;
+        }
+
+        /* PORTFOLIO SECTION */
+        .portfolio {
+            background: var(--text-light);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1;
+            border-radius: 4px;
+            cursor: pointer;
+            group: portfolio;
+        }
+
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--accent-light), var(--accent));
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .portfolio-item:hover::before {
+            opacity: 0;
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 2rem;
+            color: var(--text-light);
+            translate: 0 100%;
+            transition: translate 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            z-index: 2;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            translate: 0 0;
+        }
+
+        .portfolio-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-overlay p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            background: var(--secondary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--text-light);
+            padding: 2.5rem;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 40px rgba(26, 26, 26, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            background: var(--text-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--accent-light), var(--accent));
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent);
+            background-size: 40px 40px;
+            opacity: 0.5;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            background: var(--secondary);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--text-light);
+            padding: 2rem;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 0;
+            left: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--accent);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .stars {
+            color: #f4a460;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 500;
+            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .testimonial-role {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-btn-white {
+            background: var(--text-light);
+            color: var(--accent);
+            padding: 1rem 2.5rem;
+            border-radius: 2px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .cta-btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: var(--text-light);
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">Souvenir</div>
+            <ul>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="cta-btn">Get Started</button>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Design That Captures Moments</h1>
+            <p>Transforming spaces into timeless memories through curated interior design excellence</p>
+            <div class="hero-buttons">
+                <button class="btn-primary">Explore Our Work</button>
+                <button class="btn-secondary">Schedule Consultation</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">A selection of our most iconic interior design transformations that tell unique stories</p>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #d4a574, #c17a5c); display: flex; align-items: center; justify-content: center;"><span style="color: white; font-size: 3rem; opacity: 0.3;">✨</span></div>
+                <div class="portfolio-overlay">
+                    <h3>Modern Minimalist Loft</h3>
+                    <p>Manhattan | 2024</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #8b7355, #6b5344); display: flex; align-items: center; justify-content: center;"><span style="color: white; font-size: 3rem; opacity: 0.3;">🏠</span></div>
+                <div class="portfolio-overlay">
+                    <h3>Coastal Retreat Villa</h3>
+                    <p>Malibu | 2023</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #c4a57b, #a8876d); display: flex; align-items: center; justify-content: center;"><span style="color: white; font-size: 3rem; opacity: 0.3;">🎨</span></div>
+                <div class="portfolio-overlay">
+                    <h3>Contemporary Gallery Space</h3>
+                    <p>Brooklyn | 2024</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #7a6855, #5a4a3f); display: flex; align-items: center; justify-content: center;"><span style="color: white; font-size: 3rem; opacity: 0.3;">🌿</span></div>
+                <div class="portfolio-overlay">
+                    <h3>Organic Living Studio</h3>
+                    <p>Portland | 2023</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #c9a577, #af8a5f); display: flex; align-items: center; justify-content: center;"><span style="color: white; font-size: 3rem; opacity: 0.3;">✨</span></div>
+                <div class="portfolio-overlay">
+                    <h3>Luxury Penthouse Suite</h3>
+                    <p>San Francisco | 2024</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #9d7d63, #7d5d4f); display: flex; align-items: center; justify-content: center;"><span style="color: white; font-size: 3rem; opacity: 0.3;">🎪</span></div>
+                <div class="portfolio-overlay">
+                    <h3>Boutique Hotel Interior</h3>
+                    <p>Miami | 2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive interior design solutions tailored to your vision</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Concept Development</h3>
+                <p>From initial vision to detailed mood boards, we craft compelling design concepts that align with your aesthetic and functional needs.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🖼️</div>
+                <h3>Space Planning</h3>
+                <p>Intelligent spatial design that maximizes functionality while creating beautiful, harmonious environments that flow seamlessly.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛋️</div>
+                <h3>Furniture & Styling</h3>
+                <p>Curated furniture selection and styling that brings your space to life with carefully chosen pieces and impeccable presentation.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Color Consultation</h3>
+                <p>Expert color palette development that considers lighting, mood, and architectural features for optimal visual impact.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✨</div>
+                <h3>Luxury Finishing</h3>
+                <p>Attention to every detail—from hardware selection to lighting design—ensuring a refined and sophisticated final result.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤝</div>
+                <h3>Project Management</h3>
+                <p>Full-service project oversight from concept through completion, coordinating contractors and ensuring quality at every stage.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <h2 class="section-title">About Souvenir</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Crafting Timeless Memories Through Design</h2>
+                <p>Souvenir Interiors was founded on the belief that interior spaces should tell stories—capturing moments, emotions, and dreams in every room. With over a decade of experience, we specialize in transforming ordinary spaces into extraordinary environments.</p>
+                <p>Our approach blends contemporary design principles with timeless elegance, creating spaces that feel both current and enduring. We work closely with each client to understand their vision, lifestyle, and aspirations, translating them into spaces that inspire and delight.</p>
+                <p>At the heart of our practice is a commitment to sustainability, quality craftsmanship, and innovative design solutions that elevate the art of living.</p>
+                <button class="btn-primary" style="margin-top: 1rem;">Learn More About Us</button>
+            </div>
+            <div class="about-image"></div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <p class="section-subtitle">Trusted by homeowners and developers across the country</p>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Souvenir transformed our home into a sanctuary. Their attention to detail and understanding of our vision was exceptional. Every space now feels like home."</p>
+                <p class="testimonial-author">Alexandra Chen</p>
+                <p class="testimonial-role">Private Residence, San Francisco</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Working with Souvenir was a game-changer for our boutique hotel. They delivered a design that exceeded our expectations and guests absolutely love the space."</p>
+                <p class="testimonial-author">Marcus Johnson</p>
+                <p class="testimonial-role">Founder, Journey Hotels</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"The team brought our entire vision to life. From concept to completion, they were professional, creative, and deeply invested in the outcome. Highly recommended!"</p>
+                <p class="testimonial-author">Sarah Williams</p>
+                <p class="testimonial-role">Design Director, Modern Living Magazine</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section" id="contact">
+        <h2>Ready to Transform Your Space?</h2>
+        <p>Let's create something extraordinary together</p>
+        <button class="cta-btn-white">Schedule Your Consultation Today</button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Souvenir Interiors</h4>
+                <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem;">Creating timeless spaces that capture moments and inspire living.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Interior Design</a></li>
+                    <li><a href="#">Space Planning</a></li>
+                    <li><a href="#">Project Management</a></li>
+                    <li><a href="#">Consultation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Pinterest</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Email</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Souvenir Interiors. All rights reserved. Crafting extraordinary spaces since 2012.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll behavior for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add scroll animation class
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.08)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Button interactions
+        document.querySelectorAll('.cta-btn, .btn-primary, .cta-btn-white').forEach(button => {
+            button.addEventListener('click', function() {
+                // Add your form or modal logic here
+                console.log('Button clicked:', this.textContent);
+            });
+        });
+    </script>
+</body>
+</html>
